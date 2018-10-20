@@ -1,0 +1,12 @@
+{
+  "description": "Data manipulation episode",
+  "version": "2016.2.6162.37289",
+  "main": "Main.xaml",
+  "id": "Training",
+  "dependencies": {},
+  "configurationOptions": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ]
+}

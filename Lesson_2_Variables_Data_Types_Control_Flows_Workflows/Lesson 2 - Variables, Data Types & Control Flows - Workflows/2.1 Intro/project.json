@@ -1,0 +1,14 @@
+{
+  "name": "2.1 Intro",
+  "description": "Project",
+  "main": "Assign+Message.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6847.34137",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

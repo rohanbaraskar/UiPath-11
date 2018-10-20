@@ -1,0 +1,21 @@
+{
+  "name": "Project 1",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {
+    "OutlookActivities": "1.1.1.0",
+    "SB.OutlookMail.Activities": "1.0.0.0",
+    "UiPath.Core.Activities": "18.2.6761.24851",
+    "UiPath.Excel.Activities": "2.3.6682.26635",
+    "UiPath.Mail.Activities": "1.1.6562.21018",
+    "UiPathTeam.Gmail.Activities": "1.0.6822.33137"
+  },
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6840.32829",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

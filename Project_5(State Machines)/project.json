@@ -1,0 +1,14 @@
+{
+  "name": "Project_5(State Machines)",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6847.31976",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

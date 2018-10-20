@@ -1,0 +1,14 @@
+{
+  "name": "Project_16 (Practice_1 for level 4)",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6856.11400",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

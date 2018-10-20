@@ -1,0 +1,14 @@
+{
+  "name": "2.2 Control Flow",
+  "description": "Project",
+  "main": "Ifs & Loops.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6847.34148",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

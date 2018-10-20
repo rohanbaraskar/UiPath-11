@@ -1,0 +1,14 @@
+{
+  "name": "Project18(Level 7)",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.2",
+  "projectVersion": "1.0.6860.32367",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

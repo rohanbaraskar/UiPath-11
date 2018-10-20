@@ -1,0 +1,26 @@
+{
+  "name": "Project20(Level_9)",
+  "description": "Blank Project",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Excel.Activities": "[2.3.6682.26635]",
+    "UiPath.Mail.Activities": "[1.1.6562.21018]",
+    "UiPath.System.Activities": "[18.3.6848.19314]",
+    "UiPath.UIAutomation.Activities": "[18.3.6848.19335]"
+  },
+  "schemaVersion": "3.2",
+  "studioVersion": "18.2",
+  "projectVersion": "1.0.6863.12017",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ]
+  },
+  "projectType": "Workflow",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
+  }
+}
