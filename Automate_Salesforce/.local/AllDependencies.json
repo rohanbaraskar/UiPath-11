@@ -126,6 +126,15 @@
           }
         }
       },
+      "HtmlAgilityPack/1.8.11": {
+        "type": "package",
+        "compile": {
+          "lib/Net45/_._": {}
+        },
+        "runtime": {
+          "lib/Net45/HtmlAgilityPack.dll": {}
+        }
+      },
       "Humanizer.Core/2.4.2": {
         "type": "package",
         "compile": {
@@ -199,7 +208,20 @@
           "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       },
-      "UiPath/9.0.6856.19270": {
+      "System.Xml.XPath/4.3.0": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Xml",
+          "mscorlib"
+        ],
+        "compile": {
+          "ref/net46/_._": {}
+        },
+        "runtime": {
+          "lib/net46/System.Xml.XPath.dll": {}
+        }
+      },
+      "UiPath/9.0.6877.24355": {
         "type": "package",
         "compile": {
           "lib/_._": {}
@@ -304,7 +326,7 @@
           }
         }
       },
-      "UiPath.System.Activities/18.3.6864.20561": {
+      "UiPath.System.Activities/18.3.6877.28276": {
         "type": "package",
         "dependencies": {
           "CsvHelper": "2.13.5",
@@ -349,14 +371,14 @@
           }
         }
       },
-      "UiPath.UIAutomation.Activities/18.3.6864.20582": {
+      "UiPath.UIAutomation.Activities/18.3.6877.28298": {
         "type": "package",
         "dependencies": {
           "AvalonEdit": "5.0.3",
           "Caliburn.Micro": "3.0.1",
           "Extended.Wpf.Toolkit": "2.8.0",
           "Humanizer.Core": "2.4.2",
-          "UiPath": "9.0.6856.19270",
+          "UiPath": "9.0.6877.24355",
           "UiPath.Vision": "1.1.0"
         },
         "compile": {
@@ -415,6 +437,30 @@
         "runtime": {
           "lib/net452/UiPath.Vision.Core.dll": {},
           "lib/net452/UiPath.Vision.dll": {}
+        }
+      },
+      "UiPathTeam.XPathWebScrape.Activities/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack": "1.8.2"
+        },
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/XPathWebScrape.dll": {}
+        }
+      },
+      "xpath-webbrowser.XPathWebBrowser/1.0.8": {
+        "type": "package",
+        "dependencies": {
+          "HtmlAgilityPack": "1.4.6"
+        },
+        "compile": {
+          "lib/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/XPathWebBrowserControl.dll": {}
         }
       }
     }
@@ -599,6 +645,53 @@
         "tools/install.ps1"
       ]
     },
+    "HtmlAgilityPack/1.8.11": {
+      "sha512": "NQWVLLxNk5yWjehhd/q/7OVOXr2udo/wnmfAkgCWML8kGmqhfeAHJ6v5wR0i879hVwQ+Lj4i4Dwarb+yxpWNaw==",
+      "type": "package",
+      "path": "htmlagilitypack/1.8.11",
+      "files": [
+        ".signature.p7s",
+        "htmlagilitypack.1.8.11.nupkg.sha512",
+        "htmlagilitypack.nuspec",
+        "lib/Net20/HtmlAgilityPack.dll",
+        "lib/Net20/HtmlAgilityPack.pdb",
+        "lib/Net20/HtmlAgilityPack.xml",
+        "lib/Net40-client/HtmlAgilityPack.dll",
+        "lib/Net40-client/HtmlAgilityPack.pdb",
+        "lib/Net40-client/HtmlAgilityPack.xml",
+        "lib/Net40/HtmlAgilityPack.XML",
+        "lib/Net40/HtmlAgilityPack.dll",
+        "lib/Net40/HtmlAgilityPack.pdb",
+        "lib/Net45/HtmlAgilityPack.XML",
+        "lib/Net45/HtmlAgilityPack.dll",
+        "lib/Net45/HtmlAgilityPack.pdb",
+        "lib/NetCore45/HtmlAgilityPack.XML",
+        "lib/NetCore45/HtmlAgilityPack.dll",
+        "lib/NetCore45/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.3/HtmlAgilityPack.dll",
+        "lib/netstandard1.3/HtmlAgilityPack.pdb",
+        "lib/netstandard1.3/HtmlAgilityPack.xml",
+        "lib/netstandard1.6/HtmlAgilityPack.deps.json",
+        "lib/netstandard1.6/HtmlAgilityPack.dll",
+        "lib/netstandard1.6/HtmlAgilityPack.pdb",
+        "lib/netstandard1.6/HtmlAgilityPack.xml",
+        "lib/netstandard2.0/HtmlAgilityPack.deps.json",
+        "lib/netstandard2.0/HtmlAgilityPack.dll",
+        "lib/netstandard2.0/HtmlAgilityPack.pdb",
+        "lib/netstandard2.0/HtmlAgilityPack.xml",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.XML",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.dll",
+        "lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid+MonoTouch/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.XML",
+        "lib/uap10.0/HtmlAgilityPack.dll",
+        "lib/uap10.0/HtmlAgilityPack.pdb",
+        "lib/uap10.0/HtmlAgilityPack.pri"
+      ]
+    },
     "Humanizer.Core/2.4.2": {
       "sha512": "bdHOGpZNL92TebkGuaBe/RpxUrDeRDZQLRdFPEbM+miGV1V3ITmw6iZtGYzp44DUd60Fmw5mgHG2HaFSC4hQdQ==",
       "type": "package",
@@ -725,10 +818,48 @@
         "sharpziplib.nuspec"
       ]
     },
-    "UiPath/9.0.6856.19270": {
-      "sha512": "J/92iKeWpvzjrk5JV32ZYzAaVPLcfaMGw2aTUVFxv9Y7A56bsActoJO7BNUKIfFhMSEdxAvCNJ/JO0zsNjygvA==",
+    "System.Xml.XPath/4.3.0": {
+      "sha512": "8Eo7vuasWRqXfiBRCIKz20Rq1h6n+NMp6nW2RmyUwF4VDekg8xbRZu8S3N21P5XGAhv+kaqUwI3xydEkcw+D5w==",
       "type": "package",
-      "path": "uipath/9.0.6856.19270",
+      "path": "system.xml.xpath/4.3.0",
+      "files": [
+        ".signature.p7s",
+        "ThirdPartyNotices.txt",
+        "dotnet_library_license.txt",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Xml.XPath.dll",
+        "lib/netstandard1.3/System.Xml.XPath.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Xml.XPath.dll",
+        "ref/netstandard1.3/System.Xml.XPath.dll",
+        "ref/netstandard1.3/System.Xml.XPath.xml",
+        "ref/netstandard1.3/de/System.Xml.XPath.xml",
+        "ref/netstandard1.3/es/System.Xml.XPath.xml",
+        "ref/netstandard1.3/fr/System.Xml.XPath.xml",
+        "ref/netstandard1.3/it/System.Xml.XPath.xml",
+        "ref/netstandard1.3/ja/System.Xml.XPath.xml",
+        "ref/netstandard1.3/ko/System.Xml.XPath.xml",
+        "ref/netstandard1.3/ru/System.Xml.XPath.xml",
+        "ref/netstandard1.3/zh-hans/System.Xml.XPath.xml",
+        "ref/netstandard1.3/zh-hant/System.Xml.XPath.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.xml.xpath.4.3.0.nupkg.sha512",
+        "system.xml.xpath.nuspec"
+      ]
+    },
+    "UiPath/9.0.6877.24355": {
+      "sha512": "v7ASm3nOgRFp/PMVR9Jr9jO5RZ6G65HBi27UKwn0OEMFF5fT9FpsygEcDwSYwOf81lDsoENWQAaXko4at4tXkA==",
+      "type": "package",
+      "path": "uipath/9.0.6877.24355",
       "files": [
         "build/UiPath.targets",
         "build/UiPath/BrowserNativeMessagingImpl.dll",
@@ -764,7 +895,6 @@
         "build/UiPath/UiPathJavaBridgeImplV8_x64.dll",
         "build/UiPath/UiPathJavaBridgeV8.dll",
         "build/UiPath/UiPathJavaBridgeV8_x64.dll",
-        "build/UiPath/UiPathLicense.rtf",
         "build/UiPath/UiPathSLB.dll",
         "build/UiPath/UiPathSLB_x64.dll",
         "build/UiPath/UiPath_x64.dll",
@@ -776,7 +906,7 @@
         "build/UiPath/x64/ShaferFilechck_x64.DLL",
         "build/UiPath/x64/msvcr100.dll",
         "lib/UiPath.Interop.dll",
-        "uipath.9.0.6856.19270.nupkg.sha512",
+        "uipath.9.0.6877.24355.nupkg.sha512",
         "uipath.nuspec"
       ]
     },
@@ -826,10 +956,10 @@
         "uipath.mail.activities.nuspec"
       ]
     },
-    "UiPath.System.Activities/18.3.6864.20561": {
-      "sha512": "qsUc1vZEKiKOZ4lU8VqMSMBcQiesc59TVcPwlORuFqMVcLX2oRVx8mO7ntfY6xl909b7boVktkiCdJk2jNeTLA==",
+    "UiPath.System.Activities/18.3.6877.28276": {
+      "sha512": "bbH7IWBmCPC1aGReXM6DT/9+5HWaU4jVuZoKfprxJmfQVw0xxoaXA3X1xBa4tX1dqPXxR3kzUsZ+pjD/3g9mdw==",
       "type": "package",
-      "path": "uipath.system.activities/18.3.6864.20561",
+      "path": "uipath.system.activities/18.3.6877.28276",
       "files": [
         "lib/net461/ActiproSoftware.Docking.Wpf.dll",
         "lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
@@ -849,14 +979,14 @@
         "lib/net461/fr/UiPath.System.Activities.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.resources.dll",
-        "uipath.system.activities.18.3.6864.20561.nupkg.sha512",
+        "uipath.system.activities.18.3.6877.28276.nupkg.sha512",
         "uipath.system.activities.nuspec"
       ]
     },
-    "UiPath.UIAutomation.Activities/18.3.6864.20582": {
-      "sha512": "MBoKd9V+FJEB7lGZ30uuE7+jDmF9FHLZTYu6NUj7SiZ7TLM3jQKH/6tAgaEngkSfv0sJkYLvxpYpT7UvVgmWxg==",
+    "UiPath.UIAutomation.Activities/18.3.6877.28298": {
+      "sha512": "X9mKJDG9QM4poEhpav3DfE9PS1fCdrWFwmCW8nM8pVjrxdRewMAuw15+sLWnmqUAttMYDlRB1yIHbrR7fNbK0w==",
       "type": "package",
-      "path": "uipath.uiautomation.activities/18.3.6864.20582",
+      "path": "uipath.uiautomation.activities/18.3.6877.28298",
       "files": [
         "build/Caliburn.Micro.Platform.Core.dll",
         "build/Caliburn.Micro.Platform.dll",
@@ -899,7 +1029,7 @@
         "lib/net461/ja/UiPath.UIAutomation.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.UiAutomation.Activities.resources.dll",
         "lib/net461/ja/UiPath.Wizards.resources.dll",
-        "uipath.uiautomation.activities.18.3.6864.20582.nupkg.sha512",
+        "uipath.uiautomation.activities.18.3.6877.28298.nupkg.sha512",
         "uipath.uiautomation.activities.nuspec"
       ]
     },
@@ -951,15 +1081,40 @@
         "uipath.vision.1.1.0.nupkg.sha512",
         "uipath.vision.nuspec"
       ]
+    },
+    "UiPathTeam.XPathWebScrape.Activities/1.0.1": {
+      "sha512": "hoPENaoukhieHyiwHscDVHq5eW1MzFS72kKHG5LSkR4xclZsWiB4hGOPXcAuZrpUu7k8RKO0rNhA+lVmM0gZxQ==",
+      "type": "package",
+      "path": "uipathteam.xpathwebscrape.activities/1.0.1",
+      "files": [
+        "lib/XPathWebScrape.dll",
+        "uipathteam.xpathwebscrape.activities.1.0.1.nupkg.sha512",
+        "uipathteam.xpathwebscrape.activities.nuspec"
+      ]
+    },
+    "xpath-webbrowser.XPathWebBrowser/1.0.8": {
+      "sha512": "lkLv1zfrFdccf+JbGsKW/XT0DFb22wzHfriPO5otrEnq4td5Y0uKQzBZzF6naiy4nkVURmaQGF0e7xCqmUJCvw==",
+      "type": "package",
+      "path": "xpath-webbrowser.xpathwebbrowser/1.0.8",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/XPathWebBrowserControl.dll",
+        "xpath-webbrowser.xpathwebbrowser.1.0.8.nupkg.sha512",
+        "xpath-webbrowser.xpathwebbrowser.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "HtmlAgilityPack >= 1.8.11 <= 1.8.11",
+      "System.Xml.XPath >= 4.3.0 <= 4.3.0",
       "UiPath.Excel.Activities >= 2.4.6863.30657 <= 2.4.6863.30657",
       "UiPath.Mail.Activities >= 1.2.6863.29868 <= 1.2.6863.29868",
-      "UiPath.System.Activities >= 18.3.6864.20561 <= 18.3.6864.20561",
-      "UiPath.UIAutomation.Activities >= 18.3.6864.20582 <= 18.3.6864.20582"
+      "UiPath.System.Activities >= 18.3.6877.28276 <= 18.3.6877.28276",
+      "UiPath.UIAutomation.Activities >= 18.3.6877.28298 <= 18.3.6877.28298",
+      "UiPathTeam.XPathWebScrape.Activities >= 1.0.1 <= 1.0.1",
+      "xpath-webbrowser.XPathWebBrowser >= 1.0.8 <= 1.0.8"
     ]
   },
   "packageFolders": {
@@ -967,15 +1122,25 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "Project_21_Level_11",
-      "projectName": "Project_21_Level_11",
-      "projectPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Project_21_Level_11\\.local",
+      "projectUniqueName": "Automate_Salesforce",
+      "projectName": "Automate_Salesforce",
+      "projectPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Automate_Salesforce\\.local",
       "packagesPath": "C:\\Users\\ibindra\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Project_21_Level_11\\.local"
+      "outputPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Automate_Salesforce\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "HtmlAgilityPack": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.8.11, 1.8.11]"
+          },
+          "System.Xml.XPath": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[4.3.0, 4.3.0]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -989,12 +1154,22 @@
           "UiPath.System.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6864.20561, 18.3.6864.20561]"
+            "version": "[18.3.6877.28276, 18.3.6877.28276]"
           },
           "UiPath.UIAutomation.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6864.20582, 18.3.6864.20582]"
+            "version": "[18.3.6877.28298, 18.3.6877.28298]"
+          },
+          "UiPathTeam.XPathWebScrape.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.1, 1.0.1]"
+          },
+          "xpath-webbrowser.XPathWebBrowser": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.0.8, 1.0.8]"
           }
         }
       }

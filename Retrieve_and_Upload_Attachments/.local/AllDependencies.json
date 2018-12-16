@@ -199,7 +199,7 @@
           "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       },
-      "UiPath/9.0.6856.19270": {
+      "UiPath/9.0.6877.24355": {
         "type": "package",
         "compile": {
           "lib/_._": {}
@@ -304,7 +304,7 @@
           }
         }
       },
-      "UiPath.System.Activities/18.3.6864.20561": {
+      "UiPath.System.Activities/18.3.6877.28276": {
         "type": "package",
         "dependencies": {
           "CsvHelper": "2.13.5",
@@ -349,14 +349,14 @@
           }
         }
       },
-      "UiPath.UIAutomation.Activities/18.3.6864.20582": {
+      "UiPath.UIAutomation.Activities/18.3.6877.28298": {
         "type": "package",
         "dependencies": {
           "AvalonEdit": "5.0.3",
           "Caliburn.Micro": "3.0.1",
           "Extended.Wpf.Toolkit": "2.8.0",
           "Humanizer.Core": "2.4.2",
-          "UiPath": "9.0.6856.19270",
+          "UiPath": "9.0.6877.24355",
           "UiPath.Vision": "1.1.0"
         },
         "compile": {
@@ -725,10 +725,10 @@
         "sharpziplib.nuspec"
       ]
     },
-    "UiPath/9.0.6856.19270": {
-      "sha512": "J/92iKeWpvzjrk5JV32ZYzAaVPLcfaMGw2aTUVFxv9Y7A56bsActoJO7BNUKIfFhMSEdxAvCNJ/JO0zsNjygvA==",
+    "UiPath/9.0.6877.24355": {
+      "sha512": "v7ASm3nOgRFp/PMVR9Jr9jO5RZ6G65HBi27UKwn0OEMFF5fT9FpsygEcDwSYwOf81lDsoENWQAaXko4at4tXkA==",
       "type": "package",
-      "path": "uipath/9.0.6856.19270",
+      "path": "uipath/9.0.6877.24355",
       "files": [
         "build/UiPath.targets",
         "build/UiPath/BrowserNativeMessagingImpl.dll",
@@ -764,7 +764,6 @@
         "build/UiPath/UiPathJavaBridgeImplV8_x64.dll",
         "build/UiPath/UiPathJavaBridgeV8.dll",
         "build/UiPath/UiPathJavaBridgeV8_x64.dll",
-        "build/UiPath/UiPathLicense.rtf",
         "build/UiPath/UiPathSLB.dll",
         "build/UiPath/UiPathSLB_x64.dll",
         "build/UiPath/UiPath_x64.dll",
@@ -776,7 +775,7 @@
         "build/UiPath/x64/ShaferFilechck_x64.DLL",
         "build/UiPath/x64/msvcr100.dll",
         "lib/UiPath.Interop.dll",
-        "uipath.9.0.6856.19270.nupkg.sha512",
+        "uipath.9.0.6877.24355.nupkg.sha512",
         "uipath.nuspec"
       ]
     },
@@ -826,10 +825,10 @@
         "uipath.mail.activities.nuspec"
       ]
     },
-    "UiPath.System.Activities/18.3.6864.20561": {
-      "sha512": "qsUc1vZEKiKOZ4lU8VqMSMBcQiesc59TVcPwlORuFqMVcLX2oRVx8mO7ntfY6xl909b7boVktkiCdJk2jNeTLA==",
+    "UiPath.System.Activities/18.3.6877.28276": {
+      "sha512": "bbH7IWBmCPC1aGReXM6DT/9+5HWaU4jVuZoKfprxJmfQVw0xxoaXA3X1xBa4tX1dqPXxR3kzUsZ+pjD/3g9mdw==",
       "type": "package",
-      "path": "uipath.system.activities/18.3.6864.20561",
+      "path": "uipath.system.activities/18.3.6877.28276",
       "files": [
         "lib/net461/ActiproSoftware.Docking.Wpf.dll",
         "lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
@@ -849,14 +848,14 @@
         "lib/net461/fr/UiPath.System.Activities.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.resources.dll",
-        "uipath.system.activities.18.3.6864.20561.nupkg.sha512",
+        "uipath.system.activities.18.3.6877.28276.nupkg.sha512",
         "uipath.system.activities.nuspec"
       ]
     },
-    "UiPath.UIAutomation.Activities/18.3.6864.20582": {
-      "sha512": "MBoKd9V+FJEB7lGZ30uuE7+jDmF9FHLZTYu6NUj7SiZ7TLM3jQKH/6tAgaEngkSfv0sJkYLvxpYpT7UvVgmWxg==",
+    "UiPath.UIAutomation.Activities/18.3.6877.28298": {
+      "sha512": "X9mKJDG9QM4poEhpav3DfE9PS1fCdrWFwmCW8nM8pVjrxdRewMAuw15+sLWnmqUAttMYDlRB1yIHbrR7fNbK0w==",
       "type": "package",
-      "path": "uipath.uiautomation.activities/18.3.6864.20582",
+      "path": "uipath.uiautomation.activities/18.3.6877.28298",
       "files": [
         "build/Caliburn.Micro.Platform.Core.dll",
         "build/Caliburn.Micro.Platform.dll",
@@ -899,7 +898,7 @@
         "lib/net461/ja/UiPath.UIAutomation.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.UiAutomation.Activities.resources.dll",
         "lib/net461/ja/UiPath.Wizards.resources.dll",
-        "uipath.uiautomation.activities.18.3.6864.20582.nupkg.sha512",
+        "uipath.uiautomation.activities.18.3.6877.28298.nupkg.sha512",
         "uipath.uiautomation.activities.nuspec"
       ]
     },
@@ -958,8 +957,8 @@
     ".NETFramework,Version=v4.6.1": [
       "UiPath.Excel.Activities >= 2.4.6863.30657 <= 2.4.6863.30657",
       "UiPath.Mail.Activities >= 1.2.6863.29868 <= 1.2.6863.29868",
-      "UiPath.System.Activities >= 18.3.6864.20561 <= 18.3.6864.20561",
-      "UiPath.UIAutomation.Activities >= 18.3.6864.20582 <= 18.3.6864.20582"
+      "UiPath.System.Activities >= 18.3.6877.28276 <= 18.3.6877.28276",
+      "UiPath.UIAutomation.Activities >= 18.3.6877.28298 <= 18.3.6877.28298"
     ]
   },
   "packageFolders": {
@@ -967,11 +966,11 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "Project_21_Level_11",
-      "projectName": "Project_21_Level_11",
-      "projectPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Project_21_Level_11\\.local",
+      "projectUniqueName": "Retrieve_and_Upload_Attachments",
+      "projectName": "Retrieve_and_Upload_Attachments",
+      "projectPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Retrieve_and_Upload_Attachments\\.local",
       "packagesPath": "C:\\Users\\ibindra\\.nuget\\packages\\",
-      "outputPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Project_21_Level_11\\.local"
+      "outputPath": "D:\\Learning\\UiPath\\Programs\\UiPath\\Retrieve_and_Upload_Attachments\\.local"
     },
     "frameworks": {
       "net461": {
@@ -989,12 +988,12 @@
           "UiPath.System.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6864.20561, 18.3.6864.20561]"
+            "version": "[18.3.6877.28276, 18.3.6877.28276]"
           },
           "UiPath.UIAutomation.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6864.20582, 18.3.6864.20582]"
+            "version": "[18.3.6877.28298, 18.3.6877.28298]"
           }
         }
       }
