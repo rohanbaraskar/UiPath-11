@@ -14,7 +14,7 @@
   },
   "schemaVersion": "3.2",
   "studioVersion": "18.3.2.0",
-  "projectVersion": "1.0.0.0",
+  "projectVersion": "1.0.6929.30488",
   "runtimeOptions": {
     "autoDispose": false,
     "excludedLoggedData": [
@@ -26,5 +26,9 @@
   "libraryOptions": {
     "includeOriginalXaml": false,
     "privateWorkflows": []
+  },
+  "arguments": {
+    "input": [],
+    "output": []
   }
 }
