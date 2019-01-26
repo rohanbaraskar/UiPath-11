@@ -1,0 +1,34 @@
+{
+  "name": "Unzipping_multple_files",
+  "description": "Blank Process",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.UIAutomation.Activities": "[18.4.1]",
+    "UiPath.System.Activities": "[18.4.1]",
+    "UiPath.Excel.Activities": "[2.4.6884.25683]",
+    "UiPath.Mail.Activities": "[1.2.6863.29868]",
+    "Microsoft.Activities.Extensions": "[2.0.6.9]",
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
+    "System.IO.FileSystem": "[4.3.0]",
+    "System.IO.FileSystem.Primitives": "[4.3.0]",
+    "System.IO.FileSystem.AccessControl": "[4.5.0]",
+    "runtime.win.System.IO.FileSystem": "[4.3.0]",
+    "System.IO.Compression": "[4.3.0]",
+    "System.IO.Compression.ZipFile": "[4.3.0]"
+  },
+  "schemaVersion": "3.2",
+  "studioVersion": "18.4.1.0",
+  "projectVersion": "1.0.0.0",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ]
+  },
+  "projectType": "Workflow",
+  "libraryOptions": {
+    "includeOriginalXaml": false,
+    "privateWorkflows": []
+  }
+}

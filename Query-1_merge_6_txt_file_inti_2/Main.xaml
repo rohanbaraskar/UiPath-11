@@ -3,6 +3,7 @@
  xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
  xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
@@ -33,6 +34,7 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -56,73 +58,296 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
-      <Variable x:TypeArguments="x:String" Name="Text1_output" />
-      <Variable x:TypeArguments="x:String" Name="Text2_output" />
-      <Variable x:TypeArguments="x:String" Name="Text3_output" />
-      <Variable x:TypeArguments="x:String" Name="Text4_output" />
-      <Variable x:TypeArguments="x:String" Name="Text5_output" />
-      <Variable x:TypeArguments="x:String" Name="Text6_output" />
+      <Variable x:TypeArguments="s:String[]" Default="[{&quot; &quot;,&quot; &quot;,&quot; &quot;}]" Name="Text1_output" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="count" />
+      <Variable x:TypeArguments="x:Int32" Name="File_Number" />
+      <Variable x:TypeArguments="s:String[]" Name="Files" />
+      <Variable x:TypeArguments="x:String" Name="File_path" />
+      <Variable x:TypeArguments="x:Int32" Name="file_count" />
     </Flowchart.Variables>
     <Flowchart.StartNode>
       <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_2">
-        <Sequence DisplayName="Read data from file" sap2010:WorkflowViewState.IdRef="Sequence_1">
-          <ui:ReadTextFile Content="[Text1_output]" DisplayName="Read Text File" FileName="Text1.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <ui:ReadTextFile Content="[Text2_output]" DisplayName="Read Text File" FileName="Text2.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-          <ui:ReadTextFile Content="[Text3_output]" DisplayName="Read Text File" FileName="Text3.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
-          <ui:ReadTextFile Content="[Text4_output]" DisplayName="Read Text File" FileName="Text4.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
-          <ui:ReadTextFile Content="[Text5_output]" DisplayName="Read Text File" FileName="Text5.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_5" />
-          <ui:ReadTextFile Content="[Text6_output]" DisplayName="Read Text File" FileName="Text6.txt" sap2010:WorkflowViewState.IdRef="ReadTextFile_6" />
+        <Sequence DisplayName="Read data from file v2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:Int32">[File_Number]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:Int32">[Directory.GetFiles("D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Files to merge").Length]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="s:String[]">[Files]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Files to merge","*.txt")]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Files]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <If Condition="[count  = 3]" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <ui:ReadTextFile Content="[Text1_output(2)]" DisplayName="Read Text File" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_10" />
+                        <Assign DisplayName="Output File number" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[file_count]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">[file_count + 1]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:WriteTextFile DisplayName="Write Text File" FileName="[&quot;D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Outputs&quot; + &quot;\Output&quot; + file_count.ToString + &quot;.txt&quot;]" sap2010:WorkflowViewState.IdRef="WriteTextFile_3" Text="[Text1_output(0) + Text1_output(1)  + Text1_output(2)]" />
+                        <Assign DisplayName="Reset the count" sap2010:WorkflowViewState.IdRef="Assign_6">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <Assign DisplayName="Clear Up the array" sap2010:WorkflowViewState.IdRef="Assign_8">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="s:String[]">[Text1_output]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="s:String[]">[{" "," "," "}]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[count]" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+                          <Switch.Default>
+                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="Incorrect Value of Count" TopMost="True" />
+                          </Switch.Default>
+                          <ui:ReadTextFile x:Key="1" Content="[Text1_output(0)]" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_7" />
+                          <ui:ReadTextFile x:Key="2" Content="[Text1_output(1)]" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_8" />
+                        </Switch>
+                        <If Condition="[Files.Last = item.ToString and count &lt;&gt; 3]" sap2010:WorkflowViewState.IdRef="If_2">
+                          <If.Then>
+                            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_6">
+                              <Assign sap2010:WorkflowViewState.IdRef="Assign_9">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[file_count]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[file_count + 1]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                              <ui:WriteTextFile DisplayName="Write Text File" FileName="[&quot;D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Outputs&quot; + &quot;\Output&quot; + file_count.ToString + &quot;.txt&quot;]" sap2010:WorkflowViewState.IdRef="WriteTextFile_4" Text="[Text1_output(0) + Text1_output(1)  + Text1_output(2)]" />
+                              <Assign sap2010:WorkflowViewState.IdRef="Assign_10">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+          </ui:ForEach>
         </Sequence>
         <FlowStep.Next>
-          <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_1">
-            <Sequence DisplayName="Merger" sap2010:WorkflowViewState.IdRef="Sequence_2">
-              <ui:WriteTextFile DisplayName="Write Text File" FileName="Output_file_1.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[Text1_output + Text2_output  + Text3_output]" />
-              <ui:WriteTextFile DisplayName="Write Text File" FileName="Output_file_2.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[Text4_output + Text5_output  + Text6_output]" />
-            </Sequence>
-            <FlowStep.Next>
-              <FlowStep x:Name="__ReferenceID2">
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" Text="Message" TopMost="True" sap2010:WorkflowViewState.IdRef="MessageBox_1" />
-                <sap2010:WorkflowViewState.IdRef>FlowStep_3</sap2010:WorkflowViewState.IdRef>
-              </FlowStep>
-            </FlowStep.Next>
+          <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_3">
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="Data has been written" TopMost="True" />
           </FlowStep>
         </FlowStep.Next>
       </FlowStep>
     </Flowchart.StartNode>
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
-    <x:Reference>__ReferenceID2</x:Reference>
-    <sads:DebugSymbol.Symbol>d0xEOlxMZWFybmluZ1xVaVBhdGhcUHJvZ3JhbXNcVWlQYXRoXFF1ZXJ5LTFfbWVyZ2VfNl90eHRfZmlsZV9pbnRpXzJcTWFpbi54YW1sHT0DZA8CAQFICU8UAgERUg1VGAIBBFgRWMEBAgECSQtJmgECASZKC0qaAQIBIksLS5oBAgEeTAtMmgECARpNC02aAQIBFk4LTpoBAgESUw9TxQECAQtUD1TFAQIBBVh3WIABAgEDSVtJZgIBKUkkSTQCASdKW0pmAgElSiRKNAIBI0tbS2YCASFLJEs0AgEfTFtMZgIBHUwkTDQCARtNW01mAgEZTSRNNAIBF05bTmYCARVOJE40AgETU5MBU8IBAgENU0hTWwIBDFSTAVTCAQIBB1RIVFsCAQY=</sads:DebugSymbol.Symbol>
+    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_5">
+      <Sequence DisplayName="Read data from file v1" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_12">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:Int32">[File_Number]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:Int32">[Directory.GetFiles("D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Files to merge").Length]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <Assign sap2010:WorkflowViewState.IdRef="Assign_13">
+          <Assign.To>
+            <OutArgument x:TypeArguments="s:String[]">[Files]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles("D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Files to merge","*.txt")]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:ForEach x:TypeArguments="x:Object" CurrentIndex="{x:Null}" DisplayName="For Each" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Files]">
+          <ui:ForEach.Body>
+            <ActivityAction x:TypeArguments="x:Object">
+              <ActivityAction.Argument>
+                <DelegateInArgument x:TypeArguments="x:Object" Name="item" />
+              </ActivityAction.Argument>
+              <Sequence DisplayName="Body" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Assign sap2010:WorkflowViewState.IdRef="Assign_14">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Int32">[count + 1]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <If Condition="[count &gt; 3]" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If.Then>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Assign DisplayName="Output File number" sap2010:WorkflowViewState.IdRef="Assign_15">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[file_count]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[file_count + 1]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <ui:WriteTextFile DisplayName="Write Text File" FileName="[&quot;D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Outputs&quot; + &quot;\Output&quot; + file_count.ToString + &quot;.txt&quot;]" sap2010:WorkflowViewState.IdRef="WriteTextFile_5" Text="[Text1_output(0) + Text1_output(1)  + Text1_output(2)]" />
+                      <Assign DisplayName="Reset the count" sap2010:WorkflowViewState.IdRef="Assign_16">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                      <Assign DisplayName="Clear Up the array" sap2010:WorkflowViewState.IdRef="Assign_17">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="s:String[]">[Text1_output]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="s:String[]">[{" "," "," "}]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[count]" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+                        <Switch.Default>
+                          <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="Incorrect Value of Count" TopMost="True" />
+                        </Switch.Default>
+                        <ui:ReadTextFile x:Key="1" Content="[Text1_output(0)]" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_11" />
+                        <ui:ReadTextFile x:Key="2" Content="[Text1_output(1)]" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_12" />
+                        <ui:ReadTextFile x:Key="3" Content="[Text1_output(2)]" FileName="[item.ToString]" sap2010:WorkflowViewState.IdRef="ReadTextFile_13" />
+                      </Switch>
+                      <If Condition="[Files.Last = item.ToString and count &lt;&gt; 3]" sap2010:WorkflowViewState.IdRef="If_3">
+                        <If.Then>
+                          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_18">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[file_count]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[file_count + 1]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <ui:WriteTextFile DisplayName="Write Text File" FileName="[&quot;D:\Learning\UiPath\Programs\UiPath\Query-1_merge_6_txt_file_inti_2\Outputs&quot; + &quot;\Output&quot; + file_count.ToString + &quot;.txt&quot;]" sap2010:WorkflowViewState.IdRef="WriteTextFile_6" Text="[Text1_output(0) + Text1_output(1)  + Text1_output(2)]" />
+                            <Assign sap2010:WorkflowViewState.IdRef="Assign_19">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[count]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </ActivityAction>
+          </ui:ForEach.Body>
+        </ui:ForEach>
+      </Sequence>
+    </FlowStep>
+    <sads:DebugSymbol.Symbol>d0xEOlxMZWFybmluZ1xVaVBhdGhcUHJvZ3JhbXNcVWlQYXRoXFF1ZXJ5LTFfbWVyZ2VfNl90eHRfZmlsZV9pbnRpXzJcTWFpbi54YW1sO0EDpgIPAgEBQzZDZQIBA0QzRDYCAQJMCbIBFAIBBrUBDbUBywECAQRNC1QUAgFUVQtcFAIBUF0LsQEYAgEHtQGiAbUBuQECAQVSNVKlAQIBV082T0MCAVVaOFqpAQIBU1c5V0ACAVFdlgFdnwECAU5jEa4BHAIBCGQTaxwCAUlsE60BGAIBCWk9aUgCAUxmPmZFAgFKbCFsLwIBCm4XiQEiAgEvjAEXqwEiAgEMbxlvsgECAURwGXciAgE/eBl43gICATh5GYABIgIBNIEBGYgBIgIBMI0BGZMBIgIBIJQBGaoBHgIBDW9sb30CAUdvMm9FAgFFdUN1UwIBQnJEclACAUB4owJ42wICATt4UnjrAQIBOX5DfkQCATd7RHtLAgE1hgFGhgFVAgEzgwFHgwFVAgExjQFbjQFkAgEhkQEbkQGgAQIBKpIBG5IBoAECASWPAR2PAd4BAgEjlAEnlAFaAgEOlgEdqAEoAgEPkQFbkQFsAgEtkQE+kQFRAgErkgFbkgFsAgEokgE+kgFRAgEmjwGyAY8BzAECASSXAR+eASgCARufAR+fAeQCAgEUoAEfpwEoAgEQnAFJnAFZAgEemQFKmQFWAgEcnwGpAp8B4QICARefAVifAfEBAgEVpQFJpQFKAgETogFKogFRAgER</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="ReadTextFile_1" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="ReadTextFile_2" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="ReadTextFile_3" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="ReadTextFile_4" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="ReadTextFile_5" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="ReadTextFile_6" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="200,52.6666666666667">
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="899.333333333333,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="899.333333333333,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="860.666666666667,61.3333333333333" />
+      <sap2010:ViewStateData Id="ReadTextFile_10" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="WriteTextFile_3" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_8" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,613.333333333333">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WriteTextFile_1" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
-      <sap2010:ViewStateData Id="WriteTextFile_2" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="200,52.6666666666667">
+      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="ReadTextFile_7" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="ReadTextFile_8" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="Switch`1_1" sap:VirtualizedContainerService.HintSize="476.666666666667,271.333333333333" />
+      <sap2010:ViewStateData Id="Assign_9" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="WriteTextFile_4" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_10" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,413.333333333333">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="314,58.6666666666667">
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="476.666666666667,565.333333333333" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="498.666666666667,1000.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="860.666666666667,1152.66666666667" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="882.666666666667,1378">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="899.333333333333,1515.33333333333" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="200,52">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="200,52">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -132,17 +357,8 @@
       <sap2010:ViewStateData Id="FlowStep_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">200,331.833333333334</av:Point>
-            <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_1">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,229.166666666667</av:Point>
-            <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,281.833333333334 300,331.833333333334</av:PointCollection>
+            <av:Size x:Key="ShapeSize">200,52</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -150,8 +366,69 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">200,127.166666666667</av:Point>
-            <av:Size x:Key="ShapeSize">200,52.6666666666667</av:Size>
+            <av:Size x:Key="ShapeSize">200,52</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,179.166666666667 300,229.166666666667</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Assign_12" sap:VirtualizedContainerService.HintSize="899.333333333333,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_13" sap:VirtualizedContainerService.HintSize="899.333333333333,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_14" sap:VirtualizedContainerService.HintSize="860.666666666667,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_15" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="WriteTextFile_5" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_16" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Assign_17" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="336,514.666666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="MessageBox_4" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="ReadTextFile_11" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="ReadTextFile_12" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="ReadTextFile_13" sap:VirtualizedContainerService.HintSize="314,58.6666666666667" />
+      <sap2010:ViewStateData Id="Switch`1_2" sap:VirtualizedContainerService.HintSize="476.666666666667,294" />
+      <sap2010:ViewStateData Id="Assign_18" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="WriteTextFile_6" sap:VirtualizedContainerService.HintSize="314,86.6666666666667" />
+      <sap2010:ViewStateData Id="Assign_19" sap:VirtualizedContainerService.HintSize="314,61.3333333333333" />
+      <sap2010:ViewStateData Id="Sequence_8" sap:VirtualizedContainerService.HintSize="336,413.333333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="476.666666666667,565.333333333333" />
+      <sap2010:ViewStateData Id="Sequence_9" sap:VirtualizedContainerService.HintSize="498.666666666667,1023.33333333333">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_4" sap:VirtualizedContainerService.HintSize="860.666666666667,1175.33333333333" />
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="882.666666666667,1400.66666666667">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ForEach`1_2" sap:VirtualizedContainerService.HintSize="899.333333333333,1538" />
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="200,52">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">0,34</av:Point>
+            <av:Size x:Key="ShapeSize">200,52</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -165,7 +442,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,756" />
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,716" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

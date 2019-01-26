@@ -1,0 +1,20 @@
+1. Test Basic workflow
+
+Currently I am working on click activity in Sysytem1 xaml. Its not working fine.
+
+"Client ID: XX97615\r\n
+Client Name: Elidia Gaulke\r\nClient Country: France"
+
+[
+                                Client ID: XX97615
+                                Client Name: Elidia Gaulke
+	France
+								
+                            ]
+
+
+To Do:
+1. Fix the send email activity
+2. Add a condition
+	if no WI5 is found, end process.
+3. Last Transaction is processed again and again
